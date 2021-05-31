@@ -1,17 +1,14 @@
 import './App.css';
-import faker from 'faker';
 import CommentDetail from './CommentDetail'
 
 function App() {
   return (
     <div className="ui container comments">
-      <CommentDetail />
-      <CommentDetail />
-      <CommentDetail />
-      <CommentDetail />
-      <CommentDetail />
-      <CommentDetail />
-      <CommentDetail />
+      <CommentDetail author="Abhishek" />
+      <CommentDetail author="Anurag" />
+      <CommentDetail author="Ashvin" />
+      <CommentDetail author="Pankaj" />
+      <CommentDetail author="Akhil" />
     </div>
   );
 }
