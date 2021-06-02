@@ -1,14 +1,15 @@
 import React from 'react';
 
-function App() {
-  window.navigator.geolocation.getCurrentPosition(
+class App extends React.Component {
+  // React.Component is acting as a subclass here 
+  render() {
+    window.navigator.geolocation.getCurrentPosition(
       
-    position => console.log(position),
-    err => console.log(err)
-    );
-  return (
-    <div>Hi there</div>
-  );
+      position => console.log(position),
+      err => console.log(err)
+      );
+    return <div>HI there</div>
+  }
 }
 
 export default App;
