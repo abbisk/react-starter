@@ -1,4 +1,5 @@
 import React from 'react';
+import SeasonDisplay from './SeasonDIsplay';
 
 class App extends React.Component {
   // React.Component is acting as a subclass here 
@@ -23,7 +24,7 @@ class App extends React.Component {
      return <div>Error: {this.state.errorMessage}</div>;
     }
     if (!this.state.errorMessage && this.state.lat){
-      return <div>Latitude: {this.state.lat}</div>;
+      return <SeasonDisplay lat = {this.state.lat} />;
     }
     
     return (
