@@ -1,6 +1,10 @@
 import React from 'react';
 import SeasonDisplay from './SeasonDIsplay';
 
+if (module.hot){
+  module.hot.accept();
+}
+
 class App extends React.Component {
   // React.Component is acting as a subclass here 
   constructor(props) {
