@@ -1,5 +1,6 @@
 import React from 'react';
 import SeasonDisplay from './SeasonDIsplay';
+import Spinner from './Spinner';
 
 if (module.hot){
   module.hot.accept();
@@ -34,7 +35,7 @@ class App extends React.Component {
     return (
       
     <div>
-      Loading
+      <Spinner message="Please accept the loaction permission"/>
       </div>
     );
   }
