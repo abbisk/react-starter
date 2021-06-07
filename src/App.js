@@ -1,44 +1,14 @@
 import React from 'react';
-import SeasonDisplay from './SeasonDIsplay';
-import Spinner from './Spinner';
+import SearchBar from './components/SearchBar'
 
-if (module.hot){
-  module.hot.accept();
-}
-
-class App extends React.Component {
-  // React.Component is acting as a subclass here 
-  constructor(props) {
-    super(props);
-
-    this.state= { lat: null, errorMessage: '' };
-
-  }
-
-  componentDidMount() {
-    window.navigator.geolocation.getCurrentPosition(
-      
-      position => this.setState({ lat: position.coords.latitude}),
-      err => this.setState({ errorMessage: err.message}),
-      );
-
-  }
+const App = () => {
+  return(
+    <div className="ui container" style={{marginTop: '10px'}}>
+      <SearchBar />
   
-  render() {
-    if (this.state.errorMessage && !this.state.lat){
-     return <div>Error: {this.state.errorMessage}</div>;
-    }
-    if (!this.state.errorMessage && this.state.lat){
-      return <SeasonDisplay lat = {this.state.lat} />;
-    }
+    </div>
     
-    return (
-      
-    <div>
-      <Spinner message="Please accept the loaction permission"/>
-      </div>
-    );
-  }
+  )
 }
 
 export default App;
