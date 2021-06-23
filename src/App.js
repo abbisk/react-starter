@@ -1,32 +1,34 @@
 import React from 'react';
-import unsplash  from './api/unsplash';
-import SearchBar from './components/SearchBar';
-import ImageList from './components/ImageList';
+import Accordion from './components/Accordion';
+
+const items= [
+  {
+    title: 'What is React?',
+    content: 'React is a front end javascript framework'
+  },
+
+  {
+    title: 'What is React-Native?',
+    content: 'React is a mobile app javascript framework'
+  },
+  {
+    title: 'Why use React?',
+    content: 'React is a famous javascript library in the market now a days'
+  },
+
+];
 
 
-class App extends React.Component {
-  state = { images: [] };
+function App () {
 
-  onSearchSubmit= async term => {
-    const response = await unsplash.get('/search/photos', {
-      params: { query: term },
-      
-    });
-
-    this.setState({ images: response.data.results });
-  };
-
-
-  render() {
     return(
-      <div className="ui container" style={{marginTop: '10px'}}>
-        <SearchBar onSubmit={this.onSearchSubmit} />
-        <ImageList images={this.state.images} />
+      <div>
+        <h1>Hello World!</h1>
+        <Accordion items={items}/>
       </div>
       
       
     );
-  }
 }
 
 export default App;
