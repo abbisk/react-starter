@@ -1,0 +1,82 @@
+/* container */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-color: lightcoral;
+    border-width: 13px;
+    padding-left: 40rem;
+    margin-right: 40rem;
+    margin-top: 5rem;    
+}
+.navbar{
+    margin: 0rem 0rem 2rem 2rem;
+}
+
+/* vavbar border */
+div > a {
+
+    text-decoration: none;
+    padding: 5px;
+    
+  }
+  
+  div > a:hover{
+    border-bottom: 3px solid red;
+  }
+  
+  .active {
+    border-bottom: 3px solid red;
+  }
+
+  .email-icon{
+      position: relative;
+      margin: -12.8rem 17rem 0rem 0rem;
+  }
+
+/* inputboxes */
+.username {
+    margin: 0rem 17.2rem 0.3rem 0rem;
+}
+
+.password {
+    margin: 1rem 15.5rem 0.3rem 0rem;
+}
+
+.user-input{
+    height: 1.8rem;
+
+}
+
+.password-input{
+    height: 1.8rem;
+}
+
+
+/* button */
+.submit-button{
+    margin-top: 2rem;
+    height: 2rem;
+    color: white;
+    background-color: red;
+    border-radius: .3rem;
+    border-color: red;
+    font-weight: bold;
+    
+}
+
+/* chekckbox */
+div .checkbox{
+    height: 1rem;
+    width: 1rem;
+    margin: 1rem 0rem 0rem 0rem;
+    align-items: flex-start;
+}
+
+div .lastpass{
+    margin: 0rem 0rem 0rem 5rem;
+}
+
+
+
+
