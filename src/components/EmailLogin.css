@@ -1,55 +1,47 @@
 /* container */
-.container {
+.container-login {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-content: space-around;
+    width: fit-content;
+    
+}
+
+.container-auth {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-color: lightcoral;
-    border-width: 13px;
-    padding-left: 40rem;
-    margin-right: 40rem;
-    margin-top: 5rem;    
-}
-.navbar{
-    margin: 0rem 0rem 2rem 2rem;
+    align-items: center;
+    /* padding-left: 40rem;
+    margin-right: 40rem; */
+    margin: 0 auto;
+    width: 20rem;
+    /* margin-top: 5rem;     */
 }
 
-/* vavbar border */
-div > a {
-
-    text-decoration: none;
-    padding: 5px;
-    
-  }
-  
-  div > a:hover{
-    border-bottom: 3px solid red;
-  }
-  
-  .active {
-    border-bottom: 3px solid red;
-  }
-
-  .email-icon{
-      position: relative;
-      margin: -12.8rem 17rem 0rem 0rem;
-  }
+.tabs{
+    display: flex;
+    flex: auto;
+    justify-content: space-evenly;
+}
 
 /* inputboxes */
 .username {
-    margin: 0rem 17.2rem 0.3rem 0rem;
+    margin: 0rem 17.2rem 0.3rem 0rem !important;
 }
 
 .password {
-    margin: 1rem 15.5rem 0.3rem 0rem;
+    margin: 1rem 15.5rem 0.3rem 0rem !important;
 }
 
 .user-input{
-    height: 1.8rem;
+    height: 1.8rem !important;
 
 }
 
 .password-input{
-    height: 1.8rem;
+    height: 1.8rem !important;
 }
 
 
@@ -58,25 +50,39 @@ div > a {
     margin-top: 2rem;
     height: 2rem;
     color: white;
-    background-color: red;
+    width: 100%;
+    background-color: #ff0066;
     border-radius: .3rem;
-    border-color: red;
+    border-color: #ff0066;
     font-weight: bold;
     
 }
 
 /* chekckbox */
-div .checkbox{
-    height: 1rem;
-    width: 1rem;
-    margin: 1rem 0rem 0rem 0rem;
-    align-items: flex-start;
+.remindme{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 .5rem;
+    font-size: .79rem;
+
 }
 
-div .lastpass{
-    margin: 0rem 0rem 0rem 5rem;
-}
-
-
-
-
+h5 {
+    display: flex;
+    flex-direction: row;
+    
+  }
+  h5:before, h5:after{
+    content: "";
+    flex: .06 .1;
+    border-bottom: 1px solid;
+    margin: auto;
+  }
+  h5:before {
+    margin-right: 10px
+  }
+  h5:after {
+    margin-left: 10px
+  }
