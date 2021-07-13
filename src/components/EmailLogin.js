@@ -1,121 +1,165 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./EmailLogin.css";
-import { Tabs, Input } from "antd";
+import { Form, Input, Button, Checkbox, Tabs,Divider } from "antd";
 import "antd/dist/antd.css";
-import { MailOutlined, UserOutlined } from "@ant-design/icons";
+import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { VscLock } from "react-icons/vsc";
 
 const { TabPane } = Tabs;
 
+const EmailLogin = () => {
+  const [mode, setMode] = useState("Login");
 
+  const SwitchMode = (key) => {
+    setMode(key)
+  }
 
+  const onFinish = (values) => {
+    console.log("Received values of form: ", values);
+  };
 
-const LoginComponent = (props) => (
-
-  <>
-    <label htmlFor="usename" className="username">
-      Email
-    </label>
-    {/* <input type="text" name="name" className="user-input" /> */}
-    <Input
-      placeholder="default size"
-      prefix={<MailOutlined />}
-      className="user-input"
-      placeholder="full name"
-      onChange={e => props.setEmail(e.target.value)}
-    />
-
-    <label htmlFor="password" className="password">
-      Password
-    </label>
-    {/* <input type="text" name="Submit" className="password-input"/> */}
-    <Input
-      placeholder="default size"
-      prefix={<VscLock />}
-      className="password-input"
-      placeholder="password"
-      onChange={e => props.setlPass(e.target.value)}
-
-    />
-    <br />
-  </>
-  );
-
-const Remindme = () => (
-  <>
-    <div className="remindme">
-      <div>
-        <input type="checkbox" name="Submit" className="checkbox" />
-        <label htmlFor="check"> Remind Me?</label>
-      </div>
-      <a href="#" className="lastpass"> Last Password?</a>
-    </div>
-  </>
-);
-
-const EmailLogin = (props) => {
-
-  const [email, setEmail] = useState('');
-  const [pass, setlPass] = useState('');
-  const [fname, setFname] = useState('');
-
-  const submitValue = (e) => {
-    e.preventDefault();
-    const frmdetails = {
-        'Pass' : pass,
-        'Email' : email,
-        'Fname' : fname
-    }
-    console.log(frmdetails);
-}
-
-  
   return (
     <>
-      <form onSubmit={submitValue}>
-        <div className="container-auth">
-          <Tabs defaultActiveKey="1" className="tabs">
-            <TabPane tab="Log In" key="1" className="container-login">
-              <LoginComponent setEmail={setEmail} setlPass={setlPass}/>
-              <div className="remindme">
-              <div>
-                <input type="checkbox" name="Submit" className="checkbox" />
-                <label htmlFor="check"> Remind Me?</label>
-              </div>
-              <a href="#" className="lastpass"> Last Password?</a>
-              </div>
-            </TabPane>
-            <TabPane
-              tab="Create an account"
-              key="2"
-              className="container-login"
+      {/* <h5 className="h5">Or {mode} with email</h5> */}
+      <Divider>Or {mode} with email</Divider>
+      <div className="container-auth">
+        <Tabs defaultActiveKey="Login" onTabClick={SwitchMode}>
+          {/* Tab1 */}
+          <TabPane tab="Log In" key="Login" >
+            <Form
+              name="normal_login"
+              className="login-form"
+              initialValues={{
+                remember: false,
+              }}
+              onFinish={onFinish}
             >
-              <label htmlFor="usename" >
-                Full Name
-              </label>
-              <Input
-                placeholder="default size"
-                prefix={<UserOutlined />}
-                className="user-input"
-                onChange={e => setFname(e.target.value)}
-              />
-              <br />
-              <LoginComponent setEmail={setEmail} setlPass={setlPass}/>
-              <div className="remindme">
-              <div>
-                <input type="checkbox" name="Submit" className="checkbox" />
-                <label htmlFor="check"> I've read and agreed to Skillgig's</label>
-                <a href="#" className="lastpass"> Terms of Services</a>
-              </div>
-              </div>
-            </TabPane>
-          </Tabs>
+              <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Email!",
+                  },
+                ]}
+              >
+                <Input
+                  prefix={<MailOutlined className="site-form-item-icon" />}
+                  placeholder="Email"
+                />
+              </Form.Item>
+              <Form.Item
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Password!",
+                  },
+                ]}
+              >
+                <Input
+                  prefix={<VscLock className="site-form-item-icon" />}
+                  type="password"
+                  placeholder="Password"
+                />
+              </Form.Item>
+              <Form.Item>
+                <Form.Item name="remember" valuePropName="checked" noStyle>
+                  <Checkbox>Remember me</Checkbox>
+                </Form.Item>
 
-          {/* <Remindme /> */}
+                <a className="login-form-forgot" href="">
+                  Forgot password
+                </a>
+              </Form.Item>
 
-          <input type="submit" value="Login" className="submit-button"/>
-        </div>
-      </form>
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className="login-form-button"
+                >
+                  Log in
+                </Button>
+              </Form.Item>
+            </Form>
+          </TabPane>
+          {/* Tab2 */}
+          <TabPane tab="Create an account" key="Signup">
+            <Form
+              name="normal_login"
+              className="login-form"
+              initialValues={{
+                remember: false,
+              }}
+              onFinish={onFinish}
+            >
+              <Form.Item
+                name="fullname"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your full name!",
+                  },
+                ]}
+              >
+                <Input
+                  prefix={<UserOutlined className="site-form-item-icon" />}
+                  placeholder="Full Name"
+                />
+              </Form.Item>
+              <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Email!",
+                  },
+                ]}
+              >
+                <Input
+                  prefix={<MailOutlined className="site-form-item-icon" />}
+                  placeholder="Email"
+                />
+              </Form.Item>
+              <Form.Item
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Password!",
+                  },
+                ]}
+              >
+                <Input
+                  prefix={<VscLock className="site-form-item-icon" />}
+                  type="password"
+                  placeholder="Password"
+                />
+              </Form.Item>
+              <Form.Item>
+                <Form.Item name="remember" valuePropName="checked" noStyle>
+                  <Checkbox>I've read and agreed to Skillgig's </Checkbox>
+                </Form.Item>
+
+                <a className="terms-and-services" href="">
+                  Terms of Services
+                </a>
+              </Form.Item>
+
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className="login-form-button"
+                >
+                  Create an account
+                </Button>
+              </Form.Item>
+            </Form>
+          </TabPane>
+        </Tabs>
+      </div>
     </>
   );
 };

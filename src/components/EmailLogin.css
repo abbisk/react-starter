@@ -1,73 +1,152 @@
-/* container */
-.container-login {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
-    align-content: space-around;
-    width: fit-content;
-    
-}
-
-.container-auth {
+.container-auth .login-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    /* padding-left: 40rem;
-    margin-right: 40rem; */
-    margin: 0 auto;
-    width: 20rem;
-    /* margin-top: 5rem;     */
-}
-
-/* .tabs{
+    margin: auto;
+    width: 20.5rem;
+  }
+  
+  
+  
+  
+  .ant-divider-horizontal.ant-divider-with-text {
     display: flex;
-    flex: auto;
-    justify-content: space-evenly;
-} */
-
-form{
-    margin-top: 5rem;
-}
-/* inputboxes */
-.username {
-    margin: 0rem 17.2rem 0.3rem 0rem !important;
-}
-
-.password {
-    margin: 1rem 15.5rem 0.3rem 0rem !important;
-}
-
-.user-input{
-    height: 1.8rem !important;
-
-}
-
-.password-input{
-    height: 1.8rem !important;
-}
-
-
-/* button */
-.submit-button{
-    margin-top: 2rem;
-    height: 2rem;
-    color: white;
-    width: 100%;
-    background-color: #ff0066;
-    border-radius: .3rem;
-    border-color: #ff0066;
-    font-weight: bold;
-    
-}
-
-/* chekckbox */
-.remindme{
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0;
+    color:#888888;;
+    font-weight: 500;
+    font-size: 16px;
+    white-space: nowrap;
+    text-align: center;
+    border-top: 0;
+    border-top-color: rgba(0, 0, 0, 0.06);
+  }
+  .ant-divider-horizontal.ant-divider-with-text::before, .ant-divider-horizontal.ant-divider-with-text::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    align-items: center;
+    top: 50%;
+    width: 50%;
+    flex: 0.05 0.1;
+    border-top: 2px solid transparent;
+    border-top-color: inherit;
+    border-bottom: 0;
+    transform: translateY(50%);
+    content: '';
+  }
+  
+  h5 {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    color: #888888;
+    width: 30rem;
+    font-size: 13px;
+  }
+  h5:before,
+  h5:after {
+    content: "";
+    flex: 1.07 0.1;
+    border-bottom: 1px solid;
+    margin: auto;
+    background-color: #dbdbdb;
+    color: #dbdbdb;
+  }
+  h5:before {
+    margin-right: 10px;
+  }
+  h5:after {
+    margin-left: 10px;
+  }
+  
+  .login-form-forgot {
+    float: right;
+    font-size: 12px;
+    color: #888888;
+  }
+  
+  .login-form-button {
+    height: 34px;
+    font-size: 16px;
+    font-weight: 500;
     width: 100%;
-    padding: 0 .5rem;
-    font-size: .79rem;
-
-}
+    border-radius: 4px;
+    border-color: #e73959;
+    background-color: #e73959;
+  }
+  
+  .terms-and-services {
+    font-size: 12px;
+    margin-left: -0.2rem;
+    color: black;
+  }
+  
+  .ant-tabs-tabpane {
+    flex: none;
+    outline: none;
+    /* width: 0; */
+  }
+  
+  .ant-tabs {
+    align-items: center;
+  }
+  
+  .ant-tabs-tab-btn:focus,
+  .ant-tabs-tab-remove:focus,
+  .ant-tabs-tab-btn:active,
+  .ant-tabs-tab-remove:active {
+    /* color: var(--primaryColor); */
+    color: #e73959 !important;
+  }
+  
+  .ant-tabs-tab.ant-tabs-tab-active {
+    border-bottom: 3px solid #e73959 !important;
+    z-index: 2;
+  }
+  
+  .ant-form label {
+    font-size: 12px;
+    color: #888888;
+  }
+  
+  .ant-tabs-tab-btn {
+    color: #888888;
+    text-shadow: 0 0 0.25px currentColor;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: black;
+    text-shadow: 0 0 0.25px currentColor;
+    font-weight: 500;
+  }
+  
+  @media screen and (max-width: 900px) {
+    h5 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      color: #888888;
+      width: 20rem;
+      font-size: unset;
+    }
+    h5:before,
+    h5:after {
+      content: "";
+      flex: 0.5 0.1;
+      border-bottom: 1px solid;
+      margin: auto;
+      color: #888888;
+    }
+    h5:before {
+      margin-right: 10px;
+    }
+    h5:after {
+      margin-left: 10px;
+    }
+  }
