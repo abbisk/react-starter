@@ -125,7 +125,6 @@
     font-weight: 500;
   }
   
-  @media screen and (max-width: 900px) {
     h5 {
       display: flex;
       flex-direction: column;
@@ -149,4 +148,3 @@
     h5:after {
       margin-left: 10px;
     }
-  }
