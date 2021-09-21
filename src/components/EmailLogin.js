@@ -1,31 +1,56 @@
 import React, { useState } from "react";
 import "./EmailLogin.css";
-import { Form, Input, Button, Checkbox, Tabs,Divider } from "antd";
+import { Form, Input, Button, Checkbox, Tabs, Divider, Tooltip } from "antd";
 import "antd/dist/antd.css";
-import { UserOutlined, MailOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  MailOutlined,
+  EyeInvisibleOutlined,
+  EyeTwoTone,
+  LoadingOutlined,
+} from "@ant-design/icons";
 import { VscLock } from "react-icons/vsc";
 
 const { TabPane } = Tabs;
 
 const EmailLogin = () => {
+  const [check, setCheck] = useState(false);
+  const [isremember, setIsRemember] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errormessage, setErrorMessage] = useState("");
+  const [count, setCount] = useState(false);
+  const [messagetype, setMessageType] = useState("container-error");
+  const clicked = () => {
+    setCheck(!check);
+    // console.log(check);
+  };
+  const remember = () => {
+    setIsRemember(!isremember);
+    console.log(isremember);
+  };
+  const textemail = <span>example: example@mail.com</span>;
+  const textpass = (
+    <span>
+      Minimum 8 characters including uppercase, lowercase, symbol and digits.
+    </span>
+  );
+  const buttonWidth = 70;
   const [mode, setMode] = useState("Login");
 
   const SwitchMode = (key) => {
-    setMode(key)
-  }
+    setMode(key);
+  };
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
 
   return (
-    <>
-      {/* <h5 className="h5">Or {mode} with email</h5> */}
-      <Divider>Or {mode} with email</Divider>
+    <div className="signup-form">
       <div className="container-auth">
         <Tabs defaultActiveKey="Login" onTabClick={SwitchMode}>
           {/* Tab1 */}
-          <TabPane tab="Log In" key="Login" >
+          <TabPane tab="Log In" key="Login">
             <Form
               name="normal_login"
               className="login-form"
@@ -34,42 +59,59 @@ const EmailLogin = () => {
               }}
               onFinish={onFinish}
             >
-              <Form.Item
-                name="email"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your Email!",
-                  },
-                ]}
-              >
-                <Input
-                  prefix={<MailOutlined className="site-form-item-icon" />}
-                  placeholder="Email"
-                />
-              </Form.Item>
+              <div className="form-label">Email</div>
+              <Tooltip placement="topRight" title={textemail} trigger="click">
+                <Form.Item
+                  name="email"
+                  rules={[
+                    {
+                      type: "email",
+                      message: "The input is not valid Email",
+                    },
+                    {
+                      required: true,
+                      message: "Please input your Email",
+                    },
+                  ]}
+                >
+                  <Input
+                    prefix={<MailOutlined className="site-form-item-icon" />}
+                    placeholder="Email"
+                  />
+                </Form.Item>
+              </Tooltip>
+              <div className="form-label">Password</div>
               <Form.Item
                 name="password"
                 rules={[
                   {
+                    // type: "regexp",
+                    // pattern: /^.{8,}/,
+                    pattern: /^\S{8,}$/,
+                    message: "The input is not a valid Password",
+                  },
+                  {
                     required: true,
-                    message: "Please input your Password!",
+                    message: "Please input Password",
                   },
                 ]}
               >
-                <Input
+                <Input.Password
                   prefix={<VscLock className="site-form-item-icon" />}
-                  type="password"
+                  // type="password"
                   placeholder="Password"
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
                 />
               </Form.Item>
               <Form.Item>
                 <Form.Item name="remember" valuePropName="checked" noStyle>
-                  <Checkbox>Remember me</Checkbox>
+                  <Checkbox onChange={remember}>Remember me</Checkbox>
                 </Form.Item>
 
-                <a className="login-form-forgot" href="">
-                  Forgot password
+                <a className="login-form-forgot" href="" >
+                  
                 </a>
               </Form.Item>
 
@@ -94,12 +136,19 @@ const EmailLogin = () => {
               }}
               onFinish={onFinish}
             >
+              <div className="form-label">Full Name</div>
               <Form.Item
                 name="fullname"
                 rules={[
                   {
+                    // type: "regexp",
+                    // pattern: /^([\w]{3,})+\s+([\w\s]{3,})+$/i,
+                    pattern: /^([a-zA-Z]{3,})+\s+([a-zA-Z]{3,})+$/,
+                    message: "The input is not a valid Full Name",
+                  },
+                  {
                     required: true,
-                    message: "Please input your full name!",
+                    message: "Please input Full Name",
                   },
                 ]}
               >
@@ -108,43 +157,60 @@ const EmailLogin = () => {
                   placeholder="Full Name"
                 />
               </Form.Item>
-              <Form.Item
-                name="email"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your Email!",
-                  },
-                ]}
-              >
-                <Input
-                  prefix={<MailOutlined className="site-form-item-icon" />}
-                  placeholder="Email"
-                />
-              </Form.Item>
+              <div className="form-label">Email</div>
+              <Tooltip placement="topRight" title={textemail} trigger="click">
+                <Form.Item
+                  name="email"
+                  rules={[
+                    {
+                      type: "email",
+                      message: "The input is not a valid Email",
+                    },
+                    {
+                      required: true,
+                      message: "Please input your Email",
+                    },
+                  ]}
+                >
+                  <Input
+                    prefix={<MailOutlined className="site-form-item-icon" />}
+                    placeholder="Email"
+                  />
+                </Form.Item>
+              </Tooltip>
+              <div className="form-label">Password</div>
               <Form.Item
                 name="password"
                 rules={[
                   {
+                    // type: "regexp",
+                    // pattern: /^.{8,}/,
+                    pattern: /^\S{8,}$/,
+                    message: "The input is not a valid Password",
+                  },
+                  {
                     required: true,
-                    message: "Please input your Password!",
+                    message: "Please input Password",
                   },
                 ]}
               >
-                <Input
+                <Input.Password
                   prefix={<VscLock className="site-form-item-icon" />}
-                  type="password"
+                  // type="password"
                   placeholder="Password"
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
                 />
               </Form.Item>
               <Form.Item>
                 <Form.Item name="remember" valuePropName="checked" noStyle>
-                  <Checkbox>I've read and agreed to Skillgig's </Checkbox>
+                  <Checkbox onChange={clicked}>
+                    I've read and agreed to Skillgig's{" "}
+                  </Checkbox>
                 </Form.Item>
 
-                <a className="terms-and-services" href="">
-                  Terms of Services
-                </a>
+                <a className="terms-and-services">Terms of Services</a>
               </Form.Item>
 
               <Form.Item>
@@ -152,6 +218,7 @@ const EmailLogin = () => {
                   type="primary"
                   htmlType="submit"
                   className="login-form-button"
+                  disabled={!check}
                 >
                   Create an account
                 </Button>
@@ -160,7 +227,7 @@ const EmailLogin = () => {
           </TabPane>
         </Tabs>
       </div>
-    </>
+    </div>
   );
 };
 
