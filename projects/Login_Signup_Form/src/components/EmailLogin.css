@@ -1,0 +1,182 @@
+.container-auth .login-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  width: 20.5rem;
+}
+
+/* .ant-divider-horizontal.ant-divider-with-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
+  color:#888888;;
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+  text-align: center;
+  border-top: 0;
+  border-top-color: rgba(0, 0, 0, 0.06);
+}
+.ant-divider-horizontal.ant-divider-with-text::before, .ant-divider-horizontal.ant-divider-with-text::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  align-items: center;
+  top: 50%;
+  width: 50%;
+  flex: 0.05 0.1;
+  border-top: 2px solid transparent;
+  border-top-color: inherit;
+  border-bottom: 0;
+  transform: translateY(50%);
+  content: '';
+} */
+
+.divider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: #888888;
+  width: 30rem;
+  font-size: 13px;
+}
+.divider:before,
+.divider:after {
+  content: "";
+  -webkit-box-flex: 1.07;
+      -ms-flex: 1.07 0.1;
+          flex: 1.07 0.1;
+  border-bottom: 1px solid;
+  margin: auto;
+  background-color: #dbdbdb;
+  color: #dbdbdb;
+}
+.divider:before {
+  margin-right: 10px;
+}
+.divider:after {
+  margin-left: 10px;
+}
+
+.login-form-forgot {
+  float: right;
+  font-size: 12px;
+  color: #888888;
+}
+
+.login-form-button {
+  height: 34px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 4px;
+  border-color: #e73959;
+  background-color: #e73959;
+}
+
+.terms-and-services {
+  font-size: 12px;
+  margin-left: -0.2rem;
+  color: black;
+}
+
+.signup-form .ant-tabs-tabpane {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  outline: none;
+  /* width: 0; */
+}
+
+.signup-form .ant-tabs {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* .ant-tabs-tab-btn:focus,
+.ant-tabs-tab-remove:focus,
+.ant-tabs-tab-btn:active,
+.ant-tabs-tab-remove:active {
+  color: var(--primaryColor);
+  color: #e73959 !important;
+} */
+
+.signup-form .ant-tabs-tab.ant-tabs-tab-active {
+  border-bottom: 3px solid #e73959 !important;
+  z-index: 2;
+}
+
+.signup-form .ant-form label {
+  font-size: 12px;
+  color: #888888;
+}
+
+.signup-form .ant-tabs-tab-btn {
+  color: #888888;
+  text-shadow: 0 0 0.25px currentColor;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.signup-form .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: black;
+  text-shadow: 0 0 0.25px currentColor;
+  font-weight: 500;
+}
+
+.show-password{
+  position: fixed;
+}
+
+@media screen and (max-width: 900px) {
+  .divider {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    color: #888888;
+    width: 20rem;
+    font-size: unset;
+  }
+  .divider:before,
+  .divider:after {
+    content: "";
+    -webkit-box-flex: 0.5;
+        -ms-flex: 0.5 0.1;
+            flex: 0.5 0.1;
+    border-bottom: 1px solid;
+    margin: auto;
+    color: #888888;
+  }
+  .divider:before {
+    margin-right: 10px;
+  }
+  .divider:after {
+    margin-left: 10px;
+  }
+}
+
+.form-label{
+  font-family: Roboto;
+  font-size: .9rem;
+  font-weight: 500;
+}
